@@ -1,24 +1,38 @@
+import { Access } from '../support/actions/access'
 
+it('LOGIN com sucesso', function(){
+    
+    const user = {
+        name: 'Isaac Douglas',
+        email: 'teste-isaac@qa.com.br',
+        password: 'teste',
+        adm: 'false'
+    }
 
-it('Teste 01 - LOGIN', function(){
+    cy.deleteUserByEmail(user.email)
+    cy.postUser(user)
 
-    cy.api({
-        url: 'https://serverest.dev/usuarios',
-        method: 'POST',
-        failOnStatusCode: false,
-        body: {
-                "nome": "Isaac Douglas Aragao Eu sou o Douglas",
-                "email": "teste-isaac@qa.com.br",
-                "password": "teste",
-                "administrador": "false"
-            }
-    })
+    Access.go()
+    Access.fillForm(user)
+    Access.submit()
+    Access.shouldLogin()
 
-    cy.visit('https://front.serverest.dev/login')
-    cy.get('input[type=email]').type('teste-isaac@qa.com.br')
-    cy.get('input[type=password]').type('teste')
-    cy.get('button[type="submit"]').click()
+})
 
-    cy.get('section[class="row espacamento"]').should('be.visible')
+it.only('LOGIN sem sucesso', function(){
+    
+    const user = {
+        name: 'Cristiano Ronaldo CR7 SIIIII',
+        email: 'cr7@qa.com.br',
+        password: 'teste',
+        adm: 'false'
+    }
+
+    cy.deleteUserByEmail(user.email)
+
+    Access.go()
+    Access.fillForm(user)
+    Access.submit()
+    Access.errorMsgShouldBe('Email e/ou senha inválidos')
 
 })
