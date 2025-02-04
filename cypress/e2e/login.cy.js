@@ -1,4 +1,5 @@
 import { Access } from '../support/actions/access'
+import { Notification } from '../support/actions/components/notification'
 
 describe('Dado que estou na página de login', function(){
 
@@ -44,7 +45,7 @@ describe('Dado que estou na página de login', function(){
 
     })
 
-    context.only('Quando preencho o formulário de forma incorreta', function() {
+    context('Quando preencho o formulário de forma incorreta', function() {
 
         it('Então deve ser possível realizar um LOGIN sem sucesso', function(){
             
@@ -60,7 +61,7 @@ describe('Dado que estou na página de login', function(){
             Access.go()
             Access.fillForm(user)
             Access.submit()
-            Access.errorMsgShouldBe('Email e/ou senha inválidos')
+            Notification.errorMsgShouldBe('Email e/ou senha inválidos')
         
         })
 
@@ -78,7 +79,7 @@ describe('Dado que estou na página de login', function(){
             Access.go()
             Access.fillForm(user)
             Access.submit()
-            Access.errorMsgShouldBe('Email e/ou senha inválidos')
+            Notification.errorMsgShouldBe('Email e/ou senha inválidos')
         
         })
 
@@ -104,12 +105,12 @@ describe('Dado que estou na página de login', function(){
 
             Access.go()
             Access.submit()  
-            Access.errorMsgShouldBe('Email é obrigatório')  
-            Access.errorMsgShouldBe('Password é obrigatório')  
+            Notification.errorMsgShouldBe('Email é obrigatório')  
+            Notification.errorMsgShouldBe('Password é obrigatório')  
 
         })
 
-        it.only('Então deve retornar mensagem após esvaziar campos', function() {
+        it('Então deve retornar mensagem após esvaziar campos', function() {
 
             const user = {
                 name: 'Isaac Teste Esvaziar Campos',
@@ -122,8 +123,8 @@ describe('Dado que estou na página de login', function(){
             Access.fillForm(user)
             Access.clearForm()
             Access.submit()  
-            Access.errorMsgShouldBe('Email não pode ficar em branco')  
-            Access.errorMsgShouldBe('Password não pode ficar em branco')  
+            Notification.errorMsgShouldBe('Email não pode ficar em branco')  
+            Notification.errorMsgShouldBe('Password não pode ficar em branco')  
 
         })
 
@@ -141,4 +142,3 @@ describe('Dado que estou na página de login', function(){
     })
 
 })
-
