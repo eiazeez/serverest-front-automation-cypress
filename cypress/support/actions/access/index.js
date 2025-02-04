@@ -23,10 +23,6 @@ export const Access = {
         cy.get(el.submit).click()
     },
 
-    errorMsgShouldBe: function(message) {
-        cy.contains('span', message)
-    },
-
     userShouldLogin: function(){
         Home.isVisible()
     },
