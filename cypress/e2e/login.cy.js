@@ -45,7 +45,7 @@ describe('Dado que estou na página de login', function(){
 
     })
 
-    context.only('Quando preencho o formulário de forma incorreta', function() {
+    context('Quando preencho o formulário de forma incorreta', function() {
 
         it('Então deve ser possível realizar um LOGIN sem sucesso', function(){
             
