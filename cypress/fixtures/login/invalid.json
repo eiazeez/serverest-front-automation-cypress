@@ -1,0 +1,29 @@
+{
+   "unregistered": {
+        "name": "Isaac Email Ruim",
+        "email": "isaac-email-n-cadastrado@qa.com.br",
+        "password": "teste",
+        "adm": "false"
+    },
+
+    "badPassword": {
+        "name": "Isaac Senha Ruim",
+        "email": "isaac-senha-invalida@qa.com.br",
+        "password": "123",
+        "adm": "false"
+    },
+    
+    "badEmail": {
+        "name": "Isaac Email Ruim",
+        "email": "isaac-email-ruim",
+        "password": "teste",
+        "adm": "false"
+    },
+
+    "clear": {
+        "name": "Isaac Teste Esvaziar Campos",
+        "email": "isaac-teste-esvaziar campos",
+        "password": "teste",
+        "adm": "false"
+    }
+}

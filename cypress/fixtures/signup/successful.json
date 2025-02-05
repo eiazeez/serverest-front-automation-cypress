@@ -1,0 +1,17 @@
+{
+
+    "user": {
+        "name": "Isaac Cadastro como User",
+        "email": "isaac-user-@qa.com.br",
+        "password": "teste",
+        "adm": "false"
+    },
+
+    "admin": {
+        "name": "Isaac Cadastro como Admin",
+        "email": "isaac-admin-@qa.com.br",
+        "password": "teste",
+        "adm": "true"
+    }
+
+}
