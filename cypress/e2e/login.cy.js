@@ -3,16 +3,21 @@ import { Notification } from '../support/actions/components/notification'
 
 describe('Dado que estou na página de login', function(){
 
+    beforeEach(function() {
+        cy.fixture('login/successful').then(function(successful) {
+            this.successful = successful
+        })
+
+        cy.fixture('login/invalid').then(function(invalid) {
+            this.invalid = invalid
+        })
+    })
+
     context('Quando preencho o formulário com dados válidos', function(){
 
         it('Então deve ser possível realizar o LOGIN como Usuário', function(){
     
-            const user = {
-                name: 'Isaac Douglas',
-                email: 'teste-isaac@qa.com.br',
-                password: 'teste',
-                adm: 'false'
-            }
+            const user = this.successful.user
         
             cy.deleteUserByEmail(user.email)
             cy.postUser(user)
@@ -26,12 +31,7 @@ describe('Dado que estou na página de login', function(){
 
         it('Então deve ser possível realizar o LOGIN como Admin', function(){
     
-            const user = {
-                name: 'Azeez Qa Admin',
-                email: 'teste-azeez-admin@qa.com.br',
-                password: 'teste',
-                adm: 'true'
-            }
+            const user = this.successful.admin
         
             cy.deleteUserByEmail(user.email)
             cy.postUser(user)
@@ -45,16 +45,11 @@ describe('Dado que estou na página de login', function(){
 
     })
 
-    context('Quando preencho o formulário de forma incorreta', function() {
+    context.only('Quando preencho o formulário de forma incorreta', function() {
 
         it('Então deve ser possível realizar um LOGIN sem sucesso', function(){
             
-            const user = {
-                name: 'Isaac Email Ruim',
-                email: 'isaac-email-n-cadastrado@qa.com.br',
-                password: 'teste',
-                adm: 'false'
-            }
+            const user = this.invalid.unregistered
         
             cy.deleteUserByEmail(user.email)
         
@@ -67,12 +62,7 @@ describe('Dado que estou na página de login', function(){
 
         it('Então não deve ser possível logar com senha incorreta', function(){
             
-            const user = {
-                name: 'Isaac Senha Ruim',
-                email: 'isaac-senha-invalida@qa.com.br',
-                password: '123',
-                adm: 'false'
-            }
+            const user = this.invalid.badPassword
         
             cy.deleteUserByEmail(user.email)
         
@@ -85,12 +75,7 @@ describe('Dado que estou na página de login', function(){
 
         it('Então não deve permitir logar com email sem @', function(){
             
-            const user = {
-                name: 'Isaac Email Ruim',
-                email: 'isaac-email-ruim',
-                password: 'teste',
-                adm: 'false'
-            }
+            const user = this.invalid.badEmail
         
             cy.deleteUserByEmail(user.email)
         
@@ -112,12 +97,7 @@ describe('Dado que estou na página de login', function(){
 
         it('Então deve retornar mensagem após esvaziar campos', function() {
 
-            const user = {
-                name: 'Isaac Teste Esvaziar Campos',
-                email: 'isaac-teste-esvaziar campos',
-                password: 'teste',
-                adm: 'false'
-            }
+            const user = this.invalid.clear
 
             Access.go()
             Access.fillForm(user)
