@@ -32,6 +32,10 @@ export const Signup = {
         cy.get(el.email)
             .invoke('prop', 'validationMessage')
             .should('to.contain', text)
+    },
+
+    goToLogin: function() {
+        cy.get(el.goToLogin).click()
     }
 
 }

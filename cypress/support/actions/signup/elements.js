@@ -5,5 +5,6 @@ exports.el = {
     email: 'input[name="email"]',
     password: 'input[name="password"]',
     adm: 'input[name="administrador"]',
-    submit: 'button[type="submit"]'
+    submit: 'button[type="submit"]',
+    goToLogin: 'a[data-testid="entrar"]'
 }
