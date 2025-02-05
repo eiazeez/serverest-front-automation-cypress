@@ -7,6 +7,11 @@ import { Signup } from '../signup'
 export const Access = {
     go: function(){
         cy.visit('/login')
+        this.isVisible()
+    },
+
+    isVisible: function() {
+        cy.get(el.form).should('be.visible')
     },
 
     fillForm: function(user){
