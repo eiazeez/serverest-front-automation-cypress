@@ -64,7 +64,7 @@ describe('Dado que estou na página de cadastro', function () {
 
         })
 
-        it.only('Então deve retornar mensagem após esvaziar campos', function () {
+        it('Então deve retornar mensagem após esvaziar campos', function () {
 
             const user = this.invalid.clear
 
@@ -78,7 +78,7 @@ describe('Dado que estou na página de cadastro', function () {
 
         })
 
-        it.only('Então não deve permitir logar com email sem @', function () {
+        it('Então não deve permitir logar com email sem @', function () {
 
             const user = this.invalid.badEmail
 
