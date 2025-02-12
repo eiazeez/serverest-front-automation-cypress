@@ -19,5 +19,30 @@ export const Home = {
                 .parent('div[class="card-body"]')
                 .find('button')
                 .click()
+    },
+
+    searchProduct: function(product) {
+        cy.get('input[type="search"]').type(product)
+        cy.get('button[data-testid="botaoPesquisar"]').click()
+    },
+
+    shouldHaveProduct: function(product) {
+        cy.contains('h5', product.nome).should('be.visible')
+    },
+
+    goToProductDetails: function(product) {
+        cy.contains('h5', product.nome).should('be.visible')
+            .parent('div[class="card-body"]')
+            .find('a[class="card-link"]')
+            .click()
+    },
+
+    notFoundShouldHaveTxt: function(message) {
+        cy.contains('p', message).should('be.visible')
+    },
+
+    clickOnCart: function() {
+        cy.get('a[data-testid="shopping-cart-button"]').click()
     }
+
 }

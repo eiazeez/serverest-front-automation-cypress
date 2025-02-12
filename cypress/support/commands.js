@@ -72,8 +72,9 @@ Cypress.Commands.add('apiLogin', function(user) {
     })
 })
 
-Cypress.Commands.add('postProduct', function(user, product) {
-    cy.apiLogin(user).then(function(response){
+Cypress.Commands.add('postProduct', function(admin, product) {
+
+    cy.apiLogin(admin).then(function(response){
         cy.api({
             url: `${Cypress.env('apiUrl')}/produtos`,
             method: 'POST',
@@ -101,12 +102,13 @@ Cypress.Commands.add('getProductByName', function(name) {
     })
 })
 
-Cypress.Commands.add('deleteProductByName', (user, name) => {
+Cypress.Commands.add('deleteProductByName', (admin, name) => {
+
     cy.getProductByName(name).then(product => {
         expect(product).to.not.be.undefined
         const productId = product._id
 
-        cy.apiLogin(user).then(function(response) {
+        cy.apiLogin(admin).then(function(response) {
             cy.api({
                 url: `${Cypress.env('apiUrl')}/produtos/${productId}`,
                 headers: { authorization: response.body.authorization},
@@ -116,5 +118,9 @@ Cypress.Commands.add('deleteProductByName', (user, name) => {
     })
 })
 
+Cypress.Commands.add('adjustUserData', function(user) {
+    cy.deleteUserByEmail(user.email)
+    cy.postUser(user)
+})
 
 
