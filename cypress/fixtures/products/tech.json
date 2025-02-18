@@ -24,13 +24,23 @@
     "nome": "Placa de Vídeo RTX 4060",
     "preco": 2599,
     "descricao": "Placa de vídeo NVIDIA RTX 4060 com 8GB GDDR6 para alto desempenho.",
-    "quantidade": 10
+    "quantidade": 10,
+    "amount": 3
   },
   
   "ssd": {
     "nome": "SSD NVMe 1TB Kingston",
     "preco": 499,
     "descricao": "SSD NVMe de 1TB com velocidade de leitura de até 3500MB/s.",
-    "quantidade": 40
+    "quantidade": 40,
+    "amount": 3
+  },
+  
+  "headset": {
+    "nome": "Headset Redragon Branco",
+    "preco": 999,
+    "descricao": "Graves de excelência pra ouvir Forró de Qualidade - TUC TUC, TUC TUC, TUC TUC",
+    "quantidade": 40,
+    "amount": 5
   }
 }
