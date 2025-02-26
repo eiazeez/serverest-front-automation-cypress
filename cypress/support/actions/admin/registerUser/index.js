@@ -35,4 +35,10 @@ export const RegisterUser = {
         cy.get(el.submit).click()
     },
 
+    outputShuoldBe: function(text){
+        cy.get(el.email)
+            .invoke('prop', 'validationMessage')
+            .should('to.contain', text)
+    },
+
 } 

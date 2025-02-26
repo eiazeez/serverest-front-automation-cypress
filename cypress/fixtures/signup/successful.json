@@ -12,6 +12,13 @@
         "email": "isaac-admin-@qa.com.br",
         "password": "teste",
         "adm": "true"
+    },
+
+    "adminUser": {
+        "name": "Azeez Qa Admin",
+        "email": "teste-isaac-admin@qa.com.br",
+        "password": "teste",
+        "adm": "true"
     }
 
 }

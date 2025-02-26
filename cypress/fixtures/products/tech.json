@@ -10,7 +10,8 @@
     "nome": "Teclado Mecânico Redragon",
     "preco": 349,
     "descricao": "Teclado mecânico RGB com switches Blue para maior precisão.",
-    "quantidade": 30
+    "quantidade": 30,
+    "image": "teclado.jpg"
   },
 
   "monitor": {

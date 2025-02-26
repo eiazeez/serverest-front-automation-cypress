@@ -1,17 +1,15 @@
 {
+  "user": {
+    "name": "Isaac Douglas",
+    "email": "teste-isaac@qa.com.br",
+    "password": "teste",
+    "adm": "false"
+  },
 
-    "user": {
-        "name": "Isaac Douglas",
-        "email": "teste-isaac@qa.com.br",
-        "password": "teste",
-        "adm": "false"
-    },
-
-    "admin": {
-        "name": "Azeez Qa Admin",
-        "email": "teste-isaac-admin@qa.com.br",
-        "password": "teste",
-        "adm": "true"
-    }
-
+  "admin": {
+    "name": "Azeez Qa Admin",
+    "email": "teste-isaac-admin@qa.com.br",
+    "password": "teste",
+    "adm": "true"
+  }
 }

@@ -132,5 +132,3 @@ Cypress.Commands.add('addProductToCart', function(admin, product) {
             window.localStorage.setItem('products', `[{"_id":"${productId}","nome":"${product.nome}","preco":${product.preco},"quantidade":${product.quantidade},"descricao":"${product.descricao}","amount":${product.amount}}]`)
         })
 })
-
-
