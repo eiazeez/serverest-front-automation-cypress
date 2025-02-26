@@ -34,7 +34,7 @@ describe('Dado que estou na Lista de Compras', function () {
         })
     })
 
-    context.only('Quando a lista possui produto', function () {
+    context('Quando a lista possui produto', function () {
 
         it('Então deve ser possível limpar a lista', function () {
 
